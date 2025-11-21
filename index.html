@@ -1,11 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<title>Catalogue des pays</title>
 </head>
 <body>
+
+
+<header>
     
+<div class="select">
+    <h1>Catalogue des pays</h1>
+<select id="continentFilter">
+  <option value="">Tous les régions</option>
+  <option value="Africa">Afrique</option>
+  <option value="Americas">Amériques</option>
+  <option value="Asia">Asie</option>
+  <option value="Europe">Europe</option>
+   <option value="Oceania">Océanie</option>
+</div>
+</select>
+
+</header>
+
+   
+   <div id="countryCatalogue">
+
+
+
+<style>
+ 
+  #countryCatalogue {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-around;
+    padding: 5px;
+  }
+
+
+  .card-list {
+    border: 2px solid #000000;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .select {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #000000;
+    padding: 5px;
+    border-radius: 8px;
+    justify-content: space-between;
+  }
+</style>
+
+
+
+
+
+
+<script src="script.js"></script>
 </body>
 </html>
