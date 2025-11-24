@@ -3,24 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <title>Catalogue des pays</title>
-<style>
-  body { font-family: Arial; padding: 20px; }
-  .card {
-    border: 1px solid #cd0a0a;
-    padding: 10px;
-    margin: 10px;
-    display: inline-block;
-    width: 180px;
-    text-align: center;
-  }
-  img { width: 100%; }
-</style>
 </head>
 <body>
 
-<h1>Catalogue des pays</h1>
+<header>
+<div class="select">
+    <h1>Catalogue des pays</h1>
+    <select id="continentFilter">
+       <option value="all">Tous les régions</option>
+<option value="Africa">Africa</option>
+<option value="South America">South America</option>
+<option value="Asia">Asia</option>
+<option value="Europe">Europe</option>
+<option value="Oceania">Oceania</option>
+
+    </select>
+</div>
+</header>
 
 <div id="countryCatalogue"></div>
+
+<style>
+  #countryCatalogue {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-around;
+    padding: 5px;
+  }
+  .card-list {
+    border: 2px solid #000000;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  .select {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #000000;
+    padding: 5px;
+    border-radius: 8px;
+    justify-content: space-between;
+  }
+</style>
 
 <script src="script.js"></script>
 </body>
