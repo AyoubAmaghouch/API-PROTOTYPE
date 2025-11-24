@@ -1,34 +1,41 @@
-//anjib 3anasir bache nbiyn fihum dowal
 let catalogue = document.getElementById("countryCatalogue");
 let selectElement = document.getElementById("continentFilter");
 let allCountries = [];
 
-fetch('https://countries-api-hsak.onrender.com/api/countries')
-  .then((response) => response.json())
-  .then (data => {console.log(data);
+function displayCountries(data) {
+  catalogue.innerHTML = "";
+  data.forEach(country => {
+    let card = document.createElement("div");
+    card.className = "card-list";
+    card.innerHTML = `
+      <img src="${country.flag}" alt="Flag of ${country.name}" class="country-flag" width="120">
+      <h2>${country.name}</h2>
+      <p><strong>Continent:</strong> ${country.continent}</p>
+        <p><strong>Capital:</strong> ${country.capital}</p>
+    `;
 
-    for (let i = 0; i < data.length; i++) {
-        let countryCard = document.createElement("div"); 
-        countryCard.className = "card-list";
-        countryCard.innerHTML =`
-        <img src="${data[i].flag}" alt="Flag of ${data[i].name}" class="country-flag"/>
-        <h2 class="country-name">${data[i].name}</h2>
-        <p class="country-capital"><strong>Capital:</strong> ${data[i].capital}</p>` ;
+    catalogue.appendChild(card);
+  });
+}
 
-             catalogue.appendChild(countryCard);
+fetch("https://countries-api-hsak.onrender.com/api/countries")
+  .then(res => res.json())
+  .then(data => {
+    allCountries = data;
+    displayCountries(allCountries);
 
-
-
-    }
-    
   })
-    .catch((error) => console.error('Error fetching country data:', error));
-    
-selectElement.addEventListener("change", function() {
-    let selectedContinent = selectElement.value;
-    if (selectedContinent === "all") {
-        displaycountries(catalogue);
-    } else {
-        let filteredCountries = catalogue.filter(country => country.continent === selectedContinent);
-        displaycountries(filteredCountries);
-    }});
+  .catch(err => console.error(err));
+  
+
+
+selectElement.addEventListener("change", () => {
+  let selected = selectElement.value;
+
+  if (selected === "all") {
+    displayCountries(allCountries);
+    return;
+  }
+    let filtered = allCountries.filter(c=>c.continent === selected);
+    displayCountries(filtered);
+});

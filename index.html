@@ -6,30 +6,24 @@
 </head>
 <body>
 
-
 <header>
-    
 <div class="select">
     <h1>Catalogue des pays</h1>
-<select id="continentFilter">
-  <option value="">Tous les régions</option>
-  <option value="Africa">Afrique</option>
-  <option value="Americas">Amériques</option>
-  <option value="Asia">Asie</option>
-  <option value="Europe">Europe</option>
-   <option value="Oceania">Océanie</option>
-</div>
-</select>
+    <select id="continentFilter">
+       <option value="all">Tous les régions</option>
+<option value="Africa">Africa</option>
+<option value="South America">South America</option>
+<option value="Asia">Asia</option>
+<option value="Europe">Europe</option>
+<option value="Oceania">Oceania</option>
 
+    </select>
+</div>
 </header>
 
-   
-   <div id="countryCatalogue">
-
-
+<div id="countryCatalogue"></div>
 
 <style>
- 
   #countryCatalogue {
     display: flex;
     flex-wrap: wrap;
@@ -37,8 +31,6 @@
     justify-content: space-around;
     padding: 5px;
   }
-
-
   .card-list {
     border: 2px solid #000000;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
@@ -46,8 +38,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
   }
-
   .select {
     display: flex;
     align-items: center;
@@ -58,11 +50,6 @@
     justify-content: space-between;
   }
 </style>
-
-
-
-
-
 
 <script src="script.js"></script>
 </body>
