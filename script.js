@@ -1,3 +1,10 @@
+fetch("https://countries-api-hsak.onrender.com/api/countries") // kanjib bayanat we nkhaznhom fe all countries
+  .then(res => res.json())
+  .then(data => {
+    allCountries = data;
+    displayCountries(allCountries);
+  })
+  .catch(err => console.error(err));
 let catalogue = document.getElementById("countryCatalogue");
 let selectElement = document.getElementById("continentFilter");
 let allCountries = []; // kankhzno api hnaya
@@ -30,13 +37,7 @@ function displayCountries(data) {
   }
 }
 
-fetch("https://countries-api-hsak.onrender.com/api/countries") // kanjib bayanat we nkhaznhom fe all countries
-  .then(res => res.json())
-  .then(data => {
-    allCountries = data;
-    displayCountries(allCountries);
-  })
-  .catch(err => console.error(err));
+
 
 selectElement.addEventListener("change", function() { // filter deyal qart
   let selected = selectElement.value;
